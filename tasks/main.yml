@@ -9,3 +9,9 @@
 
 - include: manager_yum.yml
   when: ansible_pkg_mgr == 'yum'
+
+- name: Clone SimpleSAMLphp from GitHub
+  git:
+    repo: "{{ simplesamlphp_repo }}"
+    dest: "{{ simplesamlphp_dir }}"
+    version: "{{ simplesamlphp_branch }}"

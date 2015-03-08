@@ -1,0 +1,5 @@
+---
+simplesamlphp_branch: simplesamlphp-1.13
+simplesamlphp_dir: "/var/simplesamlphp"
+simplesamlphp_repo: "https://github.com/simplesamlphp/simplesamlphp.git"
+simplesamlphp_suburi: "saml"
