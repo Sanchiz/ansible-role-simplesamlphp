@@ -1,0 +1,15 @@
+---
+- yum:
+    name: "{{ item }}"
+  sudo: True
+  with_items:
+    - git
+    - httpd
+    - mod_ssl
+    - php
+    - php-xml
+    - php-mcrypt
+    - php-mysql
+    - php-curl
+    - php-gmp
+    - subversion

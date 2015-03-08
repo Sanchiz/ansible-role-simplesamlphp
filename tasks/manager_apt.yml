@@ -1,0 +1,12 @@
+---
+- apt:
+    pkg: "{{ item }}"
+  sudo: True
+  with_items:
+    - git
+    - libapache2-mod-php5
+    - php5-mcrypt
+    - php5-mysql
+    - php5-curl
+    - libmcrypt4
+    - subversion
