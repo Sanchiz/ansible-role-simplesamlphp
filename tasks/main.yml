@@ -15,3 +15,30 @@
     repo: "{{ simplesamlphp_repo }}"
     dest: "{{ simplesamlphp_dir }}"
     version: "{{ simplesamlphp_branch }}"
+
+- shell: curl -sS https://getcomposer.org/installer | php
+  args:
+    chdir: "{{ simplesamlphp_dir }}"
+    creates: "{{ simplesamlphp_dir }}/composer.phar"
+
+- command: php composer.phar install
+  args:
+    chdir: "{{ simplesamlphp_dir }}"
+    creates: "{{ simplesamlphp_dir }}/vendor"
+
+- template:
+    src: simplesamlphp.conf
+    dest: /etc/apache2/sites-available/simplesamlphp.conf
+    backup: true
+  when: ansible_os_family == 'Debian'
+
+- template:
+    src: simplesamlphp.conf
+    dest: /etc/httpd/conf.d/simplesamlphp.conf
+    backup: true
+  when: ansible_os_family == 'RedHat'
+  notify: restart apache
+
+- command: a2ensite simplesamlphp.conf
+  when: ansible_os_family == 'Debian'
+  notify: restart apache
