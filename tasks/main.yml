@@ -26,19 +26,4 @@
     chdir: "{{ simplesamlphp_dir }}"
     creates: "{{ simplesamlphp_dir }}/vendor"
 
-- template:
-    src: simplesamlphp.conf
-    dest: /etc/apache2/sites-available/simplesamlphp.conf
-    backup: true
-  when: ansible_os_family == 'Debian'
-
-- template:
-    src: simplesamlphp.conf
-    dest: /etc/httpd/conf.d/simplesamlphp.conf
-    backup: true
-  when: ansible_os_family == 'RedHat'
-  notify: restart apache
-
-- command: a2ensite simplesamlphp.conf
-  when: ansible_os_family == 'Debian'
-  notify: restart apache
+- include: vhost.yml
