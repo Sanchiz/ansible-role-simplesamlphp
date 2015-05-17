@@ -27,3 +27,5 @@
     creates: "{{ simplesamlphp_dir }}/vendor"
 
 - include: vhost.yml
+
+- include: main_config.yml

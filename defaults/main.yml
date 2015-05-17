@@ -2,7 +2,8 @@
 simplesamlphp_branch: simplesamlphp-1.13
 simplesamlphp_dir: "/var/simplesamlphp"
 simplesamlphp_repo: "https://github.com/simplesamlphp/simplesamlphp.git"
-simplesamlphp_uri: "simplesaml.192.168.56.133.xip.io"
+simplesamlphp_uri: "simplesaml.192.168.56.132.xip.io"
 simplesamlphp_suburi: false
 simplesamlphp_suburi_path: "saml"
 simplesamlphp_ssl: false
+simplesamlphp_admin_password: 12345
